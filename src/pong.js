@@ -11,17 +11,16 @@ export default class Pong {
     start(){
         this.ball = new Ball(this)
         this.paddle = new Paddle(this)
+        this.gameObjects = [this.paddle, this.ball]
         
         new InputHandler(this.paddle)
     }
 
     update(deltaTime){
-        this.paddle.update(deltaTime)
-        this.ball.update(deltaTime)
+        this.gameObjects.forEach(obj => obj.update(deltaTime))
     }
 
     draw(ctx){
-        this.paddle.draw(ctx)
-        this.ball.draw(ctx)
+        this.gameObjects.forEach(obj => obj.draw(ctx))
     }
 }

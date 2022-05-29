@@ -10,7 +10,7 @@ export default class Paddle {
         this.speed = 0
         
         this.position = {
-            x: game.gameWidth - (game.gameWidth - 10),
+            x: game.gameWidth - (game.gameWidth - 40),
             y: (game.gameHeight / 2) - (this.height / 2)
         }
     }

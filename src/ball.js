@@ -2,6 +2,7 @@ export default class Ball {
     constructor(game) {
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
+        this.game = game
         this.radius = 10
         this.position = {
             x: game.gameWidth / 2,
@@ -13,6 +14,7 @@ export default class Ball {
         }
     }
 
+    //draw ball
     draw(ctx){
         ctx.fillStyle = 'lightgrey'
         ctx.beginPath()
@@ -26,11 +28,27 @@ export default class Ball {
         this.position.x += this.speed.x
         this.position.y += this.speed.y
 
+        //check for collisions on the left side
         if(this.position.x + this.radius > this.gameWidth || this.position.x - this.radius < 0){
             this.speed.x = -this.speed.x
         }
+
+        //check for collisions on the right side
         if(this.position.y + this.radius > this.gameHeight || this.position.y - this.radius < 0){
             this.speed.y = -this.speed.y
         }
+
+        //check for collisions on the paddle
+        /*let leftOfBall = this.position.x + this.radius
+        console.log(this.game)
+        debugger;
+        let paddleSurface = this.game.paddle.position.x
+        
+
+        if(leftOfBall >= paddleSurface){
+            this.speed.x = -this.speed.x
+            this.position.x = this.game.paddle.position.x - this.game.ball.radius
+        }*/
+
     }
 }
