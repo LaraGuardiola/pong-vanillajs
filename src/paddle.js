@@ -29,11 +29,16 @@ export default class Paddle {
         }
     }
 
+    //px it gains and losses in the Y axis
     moveDown(){
         this.speed = this.maxSpeed
     }
 
     moveUp(){
         this.speed = -this.maxSpeed
+    }
+
+    stop(){
+        this.speed = 0
     }
 }
