@@ -9,8 +9,8 @@ export default class Ball {
             y: game.gameHeight / 2 
         }
         this.speed = {
-            x: 4,
-            y: 4
+            x: 3,
+            y: 3
         }
     }
 
@@ -39,16 +39,17 @@ export default class Ball {
         }
 
         //check for collisions on the paddle
-        /*let leftOfBall = this.position.x + this.radius
-        console.log(this.game)
-        debugger;
-        let paddleSurface = this.game.paddle.position.x
-        
+        let leftOfBall = this.position.x - this.radius
+        let paddleSurface = this.game.paddle.position.x + this.game.paddle.width
+        let upperSideOfPaddle = this.game.paddle.position.y
+        let lowerSideOfPaddle = this.game.paddle.position.y + this.game.paddle.height
 
-        if(leftOfBall >= paddleSurface){
+        if(leftOfBall <= paddleSurface
+            && this.position.y >= upperSideOfPaddle
+            && this.position.y - this.radius <= lowerSideOfPaddle){
             this.speed.x = -this.speed.x
-            this.position.x = this.game.paddle.position.x - this.game.ball.radius
-        }*/
+        }
+        
 
     }
 }
