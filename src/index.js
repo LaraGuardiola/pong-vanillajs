@@ -1,4 +1,5 @@
 import Pong from "./pong.js"
+import Paddle from "./paddle.js"
 
 let canvas  = document.querySelector('#screen')
 let ctx = canvas.getContext('2d')
@@ -7,10 +8,10 @@ console.log('reads')
 const GAME_WIDTH = 1000
 const GAME_HEIGHT = 600
 
-let pong = new Pong(GAME_WIDTH, GAME_HEIGHT)
+let pong = new Pong(GAME_WIDTH, GAME_HEIGHT,10)
 pong.start()
 //cleans every frame each time
-
+let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT,880)
 
 let lastTime = 0
 

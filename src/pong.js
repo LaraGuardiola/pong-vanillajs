@@ -3,9 +3,10 @@ import InputHandler from './input.js';
 import Ball from './ball.js'
 
 export default class Pong {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight, posX) {
         this.gameWidth = gameWidth
         this.gameHeight = gameHeight
+        this.posX = posX
     }
 
     start(){

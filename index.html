@@ -10,7 +10,17 @@
 <body>
 
     <div class="game">
-        <canvas width="1000" height="600" id="screen"></canvas>
+        <div class="scoreboard">
+            <div class="score">
+                <p id="player1">0</p>    
+            </div>
+            <div class="score">
+                <p id="player2">0</p>   
+            </div>
+        </div>
+        <div class="field">
+            <canvas width="1000" height="600" id="screen"></canvas>
+        </div>
     </div>
     
     <script type="module" src="./src/index.js"></script>

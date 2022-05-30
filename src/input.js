@@ -1,7 +1,6 @@
 export default class inputHandler {
     //keyCode appears as deprecated but it's still working
     constructor(paddle){
-
         //when player presses key
         document.addEventListener('keydown', event =>{
             switch(event.code){

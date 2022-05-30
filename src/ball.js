@@ -9,8 +9,8 @@ export default class Ball {
             y: game.gameHeight / 2 
         }
         this.speed = {
-            x: 3,
-            y: 3
+            x: 4,
+            y: 4
         }
     }
 
@@ -25,12 +25,21 @@ export default class Ball {
     }
 
     update(deltaTime){
+        let p1 = document.querySelector('#player1')
+        let p2 = document.querySelector('#player2')
+
         this.position.x += this.speed.x
         this.position.y += this.speed.y
 
         //check for collisions on the left side
         if(this.position.x + this.radius > this.gameWidth || this.position.x - this.radius < 0){
             this.speed.x = -this.speed.x
+        }
+
+        if(this.position.x + this.radius > this.gameWidth){
+            p1.innerHTML = parseInt(p1.innerHTML) + 1
+        }else if(this.position.x - this.radius < 0){
+            p2.innerHTML = parseInt(p2.innerHTML) + 1
         }
 
         //check for collisions on the right side
@@ -43,13 +52,17 @@ export default class Ball {
         let paddleSurface = this.game.paddle.position.x + this.game.paddle.width
         let upperSideOfPaddle = this.game.paddle.position.y
         let lowerSideOfPaddle = this.game.paddle.position.y + this.game.paddle.height
-
-        if(leftOfBall <= paddleSurface
-            && this.position.y >= upperSideOfPaddle
-            && this.position.y - this.radius <= lowerSideOfPaddle){
-            this.speed.x = -this.speed.x
-        }
         
 
+        if(leftOfBall <= paddleSurface //if touches surface of the paddle
+            && this.position.y >= upperSideOfPaddle //
+            && this.position.y - this.radius <= lowerSideOfPaddle){
+                this.speed.x = -this.speed.x
+        }
+    }
+
+    stop(){
+        this.speed.x = 0
+        this.speed.y = 0
     }
 }
